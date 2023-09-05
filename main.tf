@@ -7,7 +7,9 @@ terraform {
   }
 }
 
-provider "docker" {}
+provider "docker" {
+  host = "unix:///Users/takaha4k/.docker/run/docker.sock"
+}
 
 resource "docker_image" "nginx" {
   name         = "nginx"
