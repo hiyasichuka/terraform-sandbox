@@ -39,3 +39,9 @@ variable "aws_secret_key" {
   type        = string
   sensitive   = true
 }
+
+variable "aws_s3_bucket_name" {
+  description = "AWS S3 Bucket name"
+  type        = string
+  default     = "tsv-files-20240220"
+}

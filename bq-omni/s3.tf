@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "bucket" {
-  bucket = "tsv-files-20240220"
+  bucket = var.aws_s3_bucket_name
 }
 
 resource "aws_s3_bucket_cors_configuration" "cors" {
