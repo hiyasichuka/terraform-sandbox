@@ -25,7 +25,7 @@ variable "gcp_project_id" {
 variable "aws_region" {
   description = "AWS region"
   type        = string
-  default     = "us-weast-1"
+  default     = "us-west-1"
 }
 
 variable "aws_access_key" {
