@@ -1,7 +1,13 @@
 variable "gcp_region" {
   description = "GCP region"
   type        = string
-  default     = "us-east-1"
+  default     = "us-central1"
+}
+
+variable "gcp_location" {
+  description = "GCP location"
+  type        = string
+  default     = "US"
 }
 
 variable "gcp_credential" {
@@ -19,7 +25,7 @@ variable "gcp_project_id" {
 variable "aws_region" {
   description = "AWS region"
   type        = string
-  default     = "us-east-1"
+  default     = "us-weast-1"
 }
 
 variable "aws_access_key" {
