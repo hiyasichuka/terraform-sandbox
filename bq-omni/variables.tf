@@ -5,13 +5,13 @@ variable "gcp_region" {
 }
 
 variable "gcp_credential" {
-  description = "AWS access key"
+  description = "gcp credential file path"
   type        = string
   sensitive   = true
 }
 
 variable "gcp_project_id" {
-  description = "AWS secret key"
+  description = "GCP project id"
   type        = string
   sensitive   = true
 }
