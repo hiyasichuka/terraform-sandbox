@@ -1,9 +1,12 @@
 variable "credential" {
   description = "credential json file"
-  default     = "HOGEHOGE.json"
+  type        = string
+  sensitive   = true
 }
 
 variable "project" {
   description = "project id"
-  default     = "HOGEHOGE"
+  type        = string
+  sensitive   = true
+
 }
