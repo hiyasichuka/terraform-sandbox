@@ -4,7 +4,8 @@ resource "google_bigquery_connection" "connection" {
   description   = "Created by Terraform"
   aws {
     access_role {
-      iam_role_id = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/bigquery-omni-connection" # aws_iam_role.bigquery-omni-connection-role.arn
+      iam_role_id = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/bigquery-omni-connection"
+      # aws_iam_role.bigquery-omni-connection-role.arn
     }
   }
 }
