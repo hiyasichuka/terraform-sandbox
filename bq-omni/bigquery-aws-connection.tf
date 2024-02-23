@@ -1,7 +1,6 @@
-resource "google_bigquery_connection" "aws_connection" {
+resource "google_bigquery_connection" "connection" {
   connection_id = "aws-connection"
   location      = "aws-${var.aws_region}"
-  friendly_name = "👋"
   description   = "Created by Terraform"
   aws {
     access_role {
@@ -26,18 +25,13 @@ resource "aws_iam_role" "bigquery-omni-connection-role" {
           "Action": "sts:AssumeRoleWithWebIdentity",
           "Condition": {
             "StringEquals": {
-              "accounts.google.com:sub": "00000"
+              "accounts.google.com:sub": "0000"
             }
           }
         }
       ]
     }
     EOF
-}
-
-resource "aws_iam_role_policy_attachment" "bigquery-omni-connection-role-attach" {
-  role       = aws_iam_role.bigquery-omni-connection-role.name
-  policy_arn = aws_iam_policy.bigquery-omni-connection-policy.arn
 }
 
 resource "aws_iam_policy" "bigquery-omni-connection-policy" {
@@ -67,3 +61,7 @@ resource "aws_iam_policy" "bigquery-omni-connection-policy" {
             EOF
 }
 
+resource "aws_iam_role_policy_attachment" "bigquery-omni-connection-role-attach" {
+  role       = aws_iam_role.bigquery-omni-connection-role.name
+  policy_arn = aws_iam_policy.bigquery-omni-connection-policy.arn
+}
