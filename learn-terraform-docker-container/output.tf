@@ -10,5 +10,5 @@ output "image_id" {
 
 output "image_name" {
   description = "Name of the Docker image"
-  value = docker_image.nginx.name
+  value       = docker_image.nginx.name
 }

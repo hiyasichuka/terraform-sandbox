@@ -16,19 +16,20 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/kreuzwerker/terraform-provider-docker/blob/main/LICENSE)  
 [![Go Status](https://github.com/kreuzwerker/terraform-provider-docker/workflows/Acc%20Tests/badge.svg)](https://github.com/kreuzwerker/terraform-provider-docker/actions)
 [![Lint Status](https://github.com/kreuzwerker/terraform-provider-docker/workflows/golangci-lint/badge.svg)](https://github.com/kreuzwerker/terraform-provider-docker/actions)
-[![Go Report Card](https://goreportcard.com/badge/github.com/kreuzwerker/terraform-provider-docker)](https://goreportcard.com/report/github.com/kreuzwerker/terraform-provider-docker)  
+[![Go Report Card](https://goreportcard.com/badge/github.com/kreuzwerker/terraform-provider-docker)](https://goreportcard.com/report/github.com/kreuzwerker/terraform-provider-docker)
 
 ## Documentation
 
-The documentation for the provider is available on the [Terraform Registry](https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs).
+The documentation for the provider is available on
+the [Terraform Registry](https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs).
 
 Do you want to migrate from `v2.x` to `v3.x`? Please read the [migration guide](docs/v2_v3_migration.md)
 
 ## Example usage
 
-Take a look at the examples in the [documentation](https://registry.terraform.io/providers/kreuzwerker/docker/3.0.2/docs) of the registry
+Take a look at the examples in
+the [documentation](https://registry.terraform.io/providers/kreuzwerker/docker/3.0.2/docs) of the registry
 or use the following example:
-
 
 ```hcl
 # Set the required provider and versions
@@ -95,7 +96,6 @@ resource "docker_service" "nginx_service" {
 
 [Go](https://golang.org/doc/install) 1.18.x (to build the provider plugin)
 
-
 ```sh
 $ git clone git@github.com:kreuzwerker/terraform-provider-docker
 $ make build
@@ -109,8 +109,8 @@ To contribute, please read the contribution guidelines: [Contributing to Terrafo
 
 ## License
 
-The Terraform Provider Docker is available to everyone under the terms of the Mozilla Public License Version 2.0. [Take a look the LICENSE file](LICENSE).
-
+The Terraform Provider Docker is available to everyone under the terms of the Mozilla Public License Version
+2.0. [Take a look the LICENSE file](LICENSE).
 
 ## Stargazers over time
 

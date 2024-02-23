@@ -1,6 +1,7 @@
 ## リリース手順
 
 シークレットファイルを作成する
+
 ```secret.tfvars
 gcp_credential = "****.json"
 gcp_project_id = "****"
@@ -9,15 +10,16 @@ aws_secret_key = "****"
 ```
 
 デプロイを実行
+
 ```sh
 # terraform init ←ローカルで実行する場合、初回のみ実行
 terraform apply -var-file="secret.tfvars" -auto-approve
 ```
 
-
 ## 検証用サンプルデータ
 
 sampleのcsvをダウンロードして、S3バケットにアップロードする
+
 ```sh
 curl -o zillow.csv https://people.sc.fsu.edu/~jburkardt/data/csv/zillow.csv
 aws s3 cp zillow.csv s3://my-sample-files-8888/ --profile=PROFILE_NAME
