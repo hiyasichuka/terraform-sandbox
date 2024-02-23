@@ -1,7 +1,7 @@
 resource "google_bigquery_dataset" "bigquery_dataset" {
   dataset_id  = "sample"
   description = "Test external data source"
-  location    = "US"
+  location    = var.gcp_location
 }
 
 #resource "google_bigquery_table" "external_table" {
