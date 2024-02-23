@@ -8,7 +8,7 @@ output "gcp_big_query_dataset_id" {
   value       = google_bigquery_dataset.bigquery_dataset.dataset_id
 }
 
-output "external_table_id" {
-  description = "The ID of the BigQuery table"
-  value       = google_bigquery_table.external_table.table_id
-}
+#output "external_table_id" {
+#  description = "The ID of the BigQuery table"
+#  value       = google_bigquery_table.external_table.table_id
+#}
