@@ -40,10 +40,6 @@ resource "aws_iam_role_policy_attachment" "bigquery-omni-connection-role-attach"
   policy_arn = aws_iam_policy.bigquery-omni-connection-policy.arn
 }
 
-output "bigquery_omni_role" {
-  value = aws_iam_role.bigquery-omni-connection-role.arn
-}
-
 resource "aws_iam_policy" "bigquery-omni-connection-policy" {
   name = "bigquery-omni-connection-policy"
 
