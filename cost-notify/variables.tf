@@ -4,12 +4,6 @@ variable "gcp_region" {
   default     = "us-central1"
 }
 
-variable "gcp_location" {
-  description = "GCP location"
-  type        = string
-  default     = "US"
-}
-
 variable "gcp_credential" {
   description = "gcp credential file path"
   type        = string
@@ -38,10 +32,4 @@ variable "aws_secret_key" {
   description = "AWS secret key"
   type        = string
   sensitive   = true
-}
-
-variable "aws_s3_bucket_name" {
-  description = "AWS S3 Bucket name"
-  type        = string
-  default     = "my-sample-files-8888"
 }
