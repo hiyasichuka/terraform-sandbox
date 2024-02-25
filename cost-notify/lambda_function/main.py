@@ -1,11 +1,9 @@
-import os
 import boto3
 import json
 import requests
 from datetime import datetime, timedelta, date
 
-
-SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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"
+SLACK_WEBHOOK_URL = "***"
 
 
 def lambda_handler(event, context) -> None:
