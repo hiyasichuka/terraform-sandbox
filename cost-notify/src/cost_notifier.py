@@ -15,11 +15,8 @@ def lambda_handler(event, context) -> None:
 
     # Slack用のメッセージを作成して投げる
     (title, detail) = get_message(total_billing, service_billings)
-
-    # test
-    print(title)
-    print(detail)
-    # post_slack(title, detail)
+    print(detail)  # TODO: REMOVE
+    post_slack(title, detail)
 
 
 def get_total_billing(client) -> dict:
