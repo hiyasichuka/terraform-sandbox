@@ -27,6 +27,5 @@ resource "google_bigquery_table" "external_table" {
     google_bigquery_dataset.bigquery_dataset,
     aws_s3_bucket.bucket,
     google_bigquery_connection.connection,
-    aws_iam_openid_connect_provider.default
   ]
 }
