@@ -43,5 +43,5 @@ variable "aws_secret_key" {
 variable "aws_s3_bucket_name" {
   description = "AWS S3 Bucket name"
   type        = string
-  default     = "my-sample-files-8888"
+  default     = "test-bucket-888888"
 }
