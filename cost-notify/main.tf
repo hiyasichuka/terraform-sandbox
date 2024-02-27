@@ -48,6 +48,11 @@ resource "aws_lambda_function" "cost_notifier" {
   layers           = [aws_lambda_layer_version.lambda_layer.arn]
   memory_size      = 128
   timeout          = 30
+  environment {
+    variables = {
+      api_key = "${var.WEBHOOK_URL}"
+    }
+  }
 }
 
 # Role
@@ -77,7 +82,7 @@ resource "aws_iam_policy" "lambda_policy" {
   description = "IAM policy for the Lambda function"
 
   policy = jsonencode({
-    Version   = "2012-10-17"
+    Version = "2012-10-17"
     Statement = [
       {
         Effect = "Allow"

@@ -15,3 +15,9 @@ variable "aws_secret_key" {
   type        = string
   sensitive   = true
 }
+
+variable "WEBHOOK_URL" {
+  description = "Slack webhook url"
+  type        = string
+  sensitive   = true
+}
