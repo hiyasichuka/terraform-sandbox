@@ -4,13 +4,13 @@ resource "google_bigquery_connection" "aws_connection" {
   description   = "Created by Terraform"
   aws {
     access_role {
-      iam_role_id = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/bigquery-omni-connection"
+      iam_role_id = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/bigquery-omni-connection-role"
     }
   }
 }
 
 resource "aws_iam_role" "bigquery-omni-connection-role" {
-  name                 = "bigquery-omni-connection"
+  name                 = "bigquery-omni-connection-role"
   max_session_duration = 43200
 
   assume_role_policy = <<-EOF
