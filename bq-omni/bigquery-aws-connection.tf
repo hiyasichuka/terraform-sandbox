@@ -1,4 +1,4 @@
-resource "google_bigquery_connection" "connection" {
+resource "google_bigquery_connection" "aws_connection" {
   connection_id = "aws-connection"
   location      = "aws-${var.aws_region}"
   description   = "Created by Terraform"
@@ -25,7 +25,7 @@ resource "aws_iam_role" "bigquery-omni-connection-role" {
           "Action": "sts:AssumeRoleWithWebIdentity",
           "Condition": {
             "StringEquals": {
-              "accounts.google.com:sub": "${google_bigquery_connection.connection.aws[0].access_role[0].identity}"
+              "accounts.google.com:sub": "${google_bigquery_connection.aws_connection.aws[0].access_role[0].identity}"
             }
           }
         }
