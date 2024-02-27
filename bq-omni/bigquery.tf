@@ -1,5 +1,5 @@
 resource "google_bigquery_dataset" "bigquery_dataset" {
-  dataset_id                 = "sample"
+  dataset_id                 = "aws_dataset"
   description                = "Test external data source"
   location                   = "aws-${var.aws_region}"
   delete_contents_on_destroy = true
@@ -13,7 +13,7 @@ resource "google_bigquery_table" "external_table" {
 
   external_data_configuration {
     autodetect    = true
-    connection_id = google_bigquery_connection.connection.id
+    connection_id = google_bigquery_connection.aws_connection.id
     source_format = "CSV"
     source_uris   = ["s3://${aws_s3_bucket.bucket.id}/*"]
     csv_options {
@@ -26,6 +26,6 @@ resource "google_bigquery_table" "external_table" {
   depends_on = [
     google_bigquery_dataset.bigquery_dataset,
     aws_s3_bucket.bucket,
-    google_bigquery_connection.connection,
+    google_bigquery_connection.aws_connection,
   ]
 }

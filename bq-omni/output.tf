@@ -19,7 +19,7 @@ output "bigquery_omni_role" {
 }
 
 output "gcp_connection_identity" {
-  value = google_bigquery_connection.connection.aws[0].access_role[0].identity
+  value = google_bigquery_connection.aws_connection.aws[0].access_role[0].identity
 }
 
 #output "external_table_id" {
