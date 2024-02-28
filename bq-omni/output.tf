@@ -22,6 +22,10 @@ output "gcp_connection_identity" {
   value = google_bigquery_connection.aws_connection.aws[0].access_role[0].identity
 }
 
+output "gcp_connection_location" {
+  value = google_bigquery_connection.aws_connection.location
+}
+
 #output "external_table_id" {
 #  description = "The ID of the BigQuery table"
 #  value       = google_bigquery_table.external_table.table_id
