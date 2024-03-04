@@ -6,7 +6,7 @@ output "account_id" {
 
 output "s3_bucket_id" {
   description = "The name of the bucket"
-  value       = aws_s3_bucket.bucket.id
+  value       = aws_s3_bucket.sample.id
 }
 
 output "gcp_big_query_dataset_id" {
