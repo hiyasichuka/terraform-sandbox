@@ -18,11 +18,53 @@ terraform apply -var-file="secret.tfvars" -auto-approve
 
 ## 検証用サンプルデータ
 
-sampleのcsvをダウンロードして、S3バケットにアップロードする
+sample の tsv を S3 バケットにアップロードする
 
 ```sh
-curl -o zillow.csv https://people.sc.fsu.edu/~jburkardt/data/csv/zillow.csv
-aws s3 cp zillow.csv s3://my-sample-files-8888/ --profile=PROFILE_NAME
+
+aws s3 cp sample-data.tsv s3://test-bucket-888888/ --profile=PROFILE_NAME
+```
+
+## BigLake テーブル作成
+
+<PROJECT>は、secret.tfvars の gcp_project_id で書き換える。
+
+```
+CREATE OR REPLACE EXTERNAL TABLE
+  `<PROJECT>.aws_dataset.sample`
+WITH CONNECTION `projects/<PROJECT>/locations/aws-us-west-2/connections/aws-connection` OPTIONS( format="CSV",
+    uris=["s3://test-bucket-888888/*.tsv"],
+    max_staleness = INTERVAL 1 DAY,
+    metadata_cache_mode = "AUTOMATIC" );
+
+```
+
+ネイティブテーブルの作成
+
+```
+CREATE OR REPLACE TABLE `dataset.target` (
+    AFFGEOID STRING,
+    STATE STRING
+);
+```
+
+BigLake テーブルからネイティブへのマージ
+
+```
+MERGE INTO
+  dataset.target AS T
+USING
+  aws_dataset.sample AS S
+ON
+  T.AFFGEOID = S.AFFGEOID
+  WHEN MATCHED THEN UPDATE SET T.STATE = S.STATE
+  WHEN NOT MATCHED
+  THEN
+INSERT
+  (AFFGEOID,
+    STATE)
+VALUES
+  (S.AFFGEOID,S.STATE);
 ```
 
 ## 注意事項
@@ -31,5 +73,5 @@ aws s3 cp zillow.csv s3://my-sample-files-8888/ --profile=PROFILE_NAME
 
 ## IAM OpenID Connect provider
 
-thumbprint_listの値はサービス(google,GitHub)毎に固有の値ぽい
+thumbprint_list の値はサービス(google,GitHub)毎に固有の値ぽい
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_openid_connect_provider
